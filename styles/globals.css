@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../assets/fonts/Montserrat-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../assets/fonts/Montserrat-Italic-VariableFont_wght.ttf");
+  font-style: italic;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.Toastify__toast-body { 
+  font-family: 'Montserrat'; 
+}
+
+table td:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+table td:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+body {
+  @apply bg-dragonstone text-white;
+}
+
+@layer components {
+  .player-btn {
+    @apply w-5 h-5 box-content p-1 cursor-pointer hover:scale-95 transition transform duration-100 ease-out;
+  }
+
+  .clickable {
+    @apply cursor-pointer hover:scale-95 ease-in-out duration-100
+  }
+
+  .clickable:disabled {
+    @apply cursor-not-allowed brightness-75 scale-100
+  }
+
+  .btn {
+    @apply flex items-center gap-3 ease-in duration-100
+  }
+
+  .btn-base {
+    @apply btn py-2 px-4 text-gray hover:text-white;
+  }
+
+  .btn-primary {
+    @apply btn bg-green text-white rounded-full hover:brightness-110
+  }
+  .btn-secondary {
+    @apply btn bg-transparent text-white rounded-full border-white border-2 hover:bg-white hover:text-black
+  }
+
+  .btn-small {
+    @apply px-3 py-1 text-sm font-semibold
+  }
+  .btn-default {
+    @apply px-6 py-2 text-base font-semibold
+  }
+  .btn-large {
+    @apply px-9 py-3 text-lg font-semibold
+  }
+  
+  .btn-dot-green {
+    @apply h-1 w-1 rounded-full bg-green absolute bottom-0 left-1/2 transform -translate-x-1/2 -mb-0.5
+  }
+  .text-trim {
+    @apply text-ellipsis overflow-hidden whitespace-nowrap
+  }
+
+  .card-grid {
+    @apply grid grid-cols-[repeat(auto-fit,minmax(124px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(190px,1fr))] 
+    w-full gap-2 md:gap-4
+  }
+  
+  .card-grid-row {
+    @apply grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] 
+      grid-rows-[96%] auto-rows-[0] overflow-y-hidden w-full gap-2 md:gap-4
+  }
+
+  .card-grid-carousel {
+    @apply grid grid-flow-col columns-[minmax(200px,1fr)] scrollbar-hidden 
+    overflow-x-auto overflow-y-hidden w-full gap-2 md:gap-4
+  }
+
+  .card-grid > *:only-child {
+    max-width: 200px !important
+  }
+  .card-grid-carousel > *:only-child {
+    max-width: 200px !important
+  }
+  .card-grid-row > *:only-child {
+    max-width: 200px !important
+  }
+
+  .stick {
+    width: 10px;
+    height: 8px;
+    animation: up-down .75s infinite;
+
+    @apply bg-green
+  }
+
+  .link {
+    @apply cursor-pointer hover:underline
+  }
+
+  .marquee {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .marquee > * {
+    display: inline-block;
+    min-width: 100%; /* this is to prevent shorter text animate to right */
+    white-space: nowrap;
+    animation: marquee 6s ease-in-out infinite;
+  }
+  
+  @keyframes marquee {
+    0% {transform: translateX(0);     margin-left: 0;}
+    10% {transform: translateX(0);     margin-left: 0;}
+    80% {transform: translateX(-100%); margin-left: 100%; }
+    100% {transform: translateX(-100%); margin-left: 100%; }
+  }
+
+  @keyframes up-down {
+    0% {
+      height: 8px;
+    }
+    50% {
+      height: 100%;
+    }
+    100% {
+      height: 8px;
+    }
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+    width: 0px;
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-carbon;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8c8c8c;
+  }
+
+  input[type=range] {
+    height: 18px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 95px;
+    background: transparent;
+  }
+  /* input[type=range]:hover::-webkit-slider-runnable-track,
+  input[type=range]:hover::-ms-track,
+  input[type=range]:hover::-moz-range-track{
+    @apply bg-green;
+  }
+  input[type=range]:hover::-webkit-slider-thumb,
+  input[type=range]:hover::-moz-range-thumb,
+  input[type=range]:hover::-ms-thumb{
+    height: 1px !important;
+    width: 1px !important;
+  } */
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: #FFFFFF;
+    border-radius: 50px;
+    border: 0px solid #000000;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 12px;
+    width: 12px;
+    border-radius: 50px;
+    background: #FFFFFF;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -4px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #FFFFFF;
+  }
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: #FFFFFF;
+    border-radius: 50px;
+    border: 0px solid #000000;
+  }
+  input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 12px;
+    width: 12px;
+    border-radius: 50px;
+    background: #FFFFFF;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #FFFFFF;
+    border: 0px solid #000000;
+    border-radius: 100px;
+    box-shadow: 0px 0px 0px #000000;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: #FFFFFF;
+    border: 0px solid #000000;
+    border-radius: 100px;
+    box-shadow: 0px 0px 0px #000000;
+  }
+  input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 0px 0px 0px #000000;
+    border: 0px solid #000000;
+    height: 12px;
+    width: 12px;
+    border-radius: 50px;
+    background: #FFFFFF;
+    cursor: pointer;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #FFFFFF;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #FFFFFF;
+  }  
+}
