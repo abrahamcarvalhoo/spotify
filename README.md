@@ -6,7 +6,7 @@
 
 built with **React, Next.js, Tailwind CSS** and hosted with [Netlify](https://netlify.com)
 
-[![Netlify Status]()
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fca4e6da-1929-4684-b563-a2bdfb3cbe16/deploy-status)](https://app.netlify.com/sites/spot-fy/deploys)
 
 ![demo](https://raw.githubusercontent.com/abrahamcarvalhoo/spotify/main/public/images/demo.png)
 </div>
